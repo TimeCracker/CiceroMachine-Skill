@@ -1,3 +1,5 @@
+![CiceroMachine Skill — evidence-driven multi-agent debate for Codex, Claude Code, and DeepSeek Harness](assets/readme-banner.webp)
+
 # CiceroMachine Skill
 
 **一个独立的、跨平台的证据驱动辩论 Skill。** A 正方、B 反方分别检索与反驳，C 主持人逐轮审计，最后给出带来源、成立条件和反转条件的报告。
