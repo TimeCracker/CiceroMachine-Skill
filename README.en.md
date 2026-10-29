@@ -8,6 +8,14 @@
 
 Adapted from the published skill in [TimeCracker/CiceroMachine](https://github.com/TimeCracker/CiceroMachine) for Codex, Claude Code, and DeepSeek Harness (DSH). This repository contains the skill, installation/validation utilities, and documentation. It does not bundle the original TypeScript web application.
 
+## Usage examples
+
+Codex:
+
+```text
+$cicero-machine Debate: Is the 2000 dot-com bubble an appropriate comparison for today's AI investment? Run 5 rounds. Answer in English.
+```
+
 ## Runtime requirements
 
 **A complete online debate requires both real subagents and working search/source-reading tools in the host. Successful installation does not establish that these capabilities are available.** The host is the agent application that runs the skill, such as Codex, Claude Code, or DeepSeek Harness.
@@ -78,19 +86,19 @@ For manual installation, copy the entire `skills/cicero-machine/` directory into
 Codex:
 
 ```text
-$cicero-machine Debate: Should the entire long user behavior sequence be passed to a Transformer? Run 5 rounds. Answer in English.
+$cicero-machine Debate: Is the 2000 dot-com bubble an appropriate comparison for today's AI investment? Run 5 rounds. Answer in English.
 ```
 
 Claude Code:
 
 ```text
-/cicero-machine Debate: Should the entire long user behavior sequence be passed to a Transformer? Run 5 rounds. Answer in English.
+/cicero-machine Debate: Is the 2000 dot-com bubble an appropriate comparison for today's AI investment? Run 5 rounds. Answer in English.
 ```
 
 DeepSeek Harness:
 
 ```text
-Use the cicero-machine skill to debate: Should the entire long user behavior sequence be passed to a Transformer? Run 5 rounds. Answer in English.
+Use the cicero-machine skill to debate: Is the 2000 dot-com bubble an appropriate comparison for today's AI investment? Run 5 rounds. Answer in English.
 ```
 
 After installation, ask the host to list and read `cicero-machine` and confirm that it loads the intended directory. If another skill with the same name exists, check discovery priority and paths. Copying files successfully does not prove that the host loaded them.
@@ -111,75 +119,6 @@ Except for the special one-round sequence above, public turns follow A → B →
 Early agreement does not cancel the remaining rounds you requested. If you ask to stop or summarize early, or tool limitations prevent continuation, the report states how many rounds actually completed. More rounds generally require more time, tokens, and searches; execution remains subject to host quotas, context limits, and tool availability.
 
 You can pause, add factors, and continue. Resuming in a new session depends on available public records. For supplied-materials-only analysis, explicitly say: “Use only these materials; offline analysis is acceptable.”
-
-## Usage examples
-
-Use the following natural-language requests with your platform's entry point: `$cicero-machine` in Codex, `/cicero-machine` in Claude Code, or “Use the cicero-machine skill” in DSH. Specify rounds and output language directly in the request.
-
-### Investment research: the memory cycle, 5 rounds
-
-```text
-Use the cicero-machine skill to debate: Will the current memory cycle last
-significantly longer than previous cycles?
-Run 5 rounds. Answer in English. Use today as the information cutoff.
-Scope: server DRAM, niche DRAM, HBM, and memory module manufacturers.
-First define how to measure "longer" and which historical periods to compare.
-Separate demand structure, supply expansion, inventories, and pricing.
-Both sides must look for counterevidence.
-Prioritize company disclosures, financial reports, and official sources;
-identify each data period and source.
-Conclude with conditions that support the judgment, conditions that would
-reverse it, and important facts still requiring verification.
-```
-
-### Technical selection: long user sequences, 2 rounds
-
-```text
-Use the cicero-machine skill to debate: For long user behavior sequences
-in industrial recommendation ranking, should we prioritize a full-sequence
-Transformer or retrieval/compression before modeling?
-Run 2 rounds. Answer in English.
-Evaluate CTR/CVR performance, serving latency, GPU memory, training cost,
-and information loss.
-Use verifiable papers or official sources only; mark unpublished production
-metrics as unknown.
-```
-
-### Offline materials: a caching decision, 2 rounds
-
-This example needs no online search, but still requires real subagents. The following data is fictional and supplied only for demonstration.
-
-```text
-Use the cicero-machine skill to debate: Is the current evidence sufficient
-to roll out this caching approach to all users?
-Run 2 rounds. Use only the materials below; offline analysis is acceptable.
-Answer in English.
-Material 1: In a fictional experiment, the treatment and control groups each
-have 100,000 users. Mean latency is 80 ms versus 100 ms. No variance,
-percentile, or statistical significance results are available.
-Material 2: Cost per 1,000 requests is CNY 0.9 versus CNY 1.0,
-excluding additional fixed costs.
-Material 3: Stale cache entries affect 5% of frequently updated products;
-the effect on conversion has not been evaluated.
-Separate known results from assumptions and cite the material numbers.
-Do not invent external sources.
-```
-
-### Pause, add constraints, and continue
-
-Send these messages in sequence within the same ongoing debate:
-
-```text
-Pause. Save the current public progress and do not dispatch new tasks.
-```
-
-```text
-Add a constraint: serving latency must satisfy p95 ≤ 100 ms.
-Continue toward the originally requested total round count. If this changes
-the premises and requires rework, first identify the affected conclusions.
-```
-
-Resumption depends on the surviving session or public checkpoints. A new session does not automatically retain the old roles' private contexts.
 
 ## Contents and validation
 
