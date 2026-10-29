@@ -1,0 +1,6 @@
+interface:
+  display_name: "Cicero Machine 辩论研究"
+  short_description: "跨 Codex、Claude Code 与 DeepSeek Harness 的证据驱动多代理辩论"
+  default_prompt: "使用 $cicero-machine 对给定命题开展三轮独立 agent 辩论，先检查宿主能力，再给出有来源的条件性结论。"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
